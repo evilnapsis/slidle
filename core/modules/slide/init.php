@@ -9,6 +9,7 @@ include "core/modules/".Module::$module."/model/UserData.php";
 include "core/modules/".Module::$module."/model/PostData.php";
 include "core/modules/".Module::$module."/model/ThemeData.php";
 include "core/modules/".Module::$module."/model/LoveData.php";
+include "core/modules/".Module::$module."/model/InvitationData.php";
 
 session_start();
 ob_start();
