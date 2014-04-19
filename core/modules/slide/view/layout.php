@@ -164,6 +164,11 @@ if(Session::getUID()!=""){
         <br>
         <a href="https://twitter.com/slidleit" style="color:white;">@slidleit</a>
       </div>
+      <div class="col-md-3">
+        <h2>Lugares</h2>
+        <br>
+        <a href="./" style="color:white;">Pagina principal</a>
+      </div>
     </div>
   </div>
   <br><br>
