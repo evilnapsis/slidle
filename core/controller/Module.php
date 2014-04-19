@@ -18,6 +18,7 @@ class Module {
 		include "core/modules/".Module::$module."/view/layout.php";
 	}
 
+
 	// validacion del modulo
 	public static function isValid(){
 		$valid = false;

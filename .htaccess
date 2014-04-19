@@ -1,0 +1,4 @@
+Options +FollowSymLinks
+RewriteEngine On
+
+RewriteRule ^sldl/(.*)$ index.php?view=post&id=$1

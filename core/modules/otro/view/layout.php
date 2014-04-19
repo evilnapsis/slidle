@@ -18,7 +18,6 @@ if(isset($_GET["view"]) && $_GET["view"]=="post" && isset($_GET["id"])){
  ?>
 <html>
 <head>
-
 <meta charset="utf8">
 <?php if($is_post==true):?>
 <title><?php echo $post->title; ?> - en un Slidle</title>
@@ -155,7 +154,7 @@ if(Session::getUID()!=""){
     <div class="row">
       <div class="col-md-6">
       <br>
-        <h1>Slidle<sup><span class="label label-danger">BETA</span></sup>, Inc.</h1>
+        <h1>Slidle, Inc.</h1>
         <p>Otro proyecto de <a href="http://neowelder.com/" style="color:white;"><b>NeoWelder Labs</b></a></p>
         <br><br>
       </div>
