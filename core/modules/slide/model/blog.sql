@@ -73,3 +73,14 @@ create table reslidle(
 	foreign key(slide_id) references slide(id),
 	foreign key(slide_id) references slide(id)
 );
+
+
+create table invitation(
+	id int not null auto_increment primary key,
+	user_id int,
+	email varchar(255) not null,
+	the_key varchar(10) not null,
+	is_used boolean not null default 0,
+	foreign key(user_id) references user(id),
+	created_at datetime not null
+);
