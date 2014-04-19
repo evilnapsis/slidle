@@ -4,7 +4,7 @@
 	<h2><i class="glyphicon glyphicon-envelope"></i> Enviar Invitacion</h2>
 	<p>Bienvenido al sistema de invitacion de <b>Slidle</b>. Lee cuidadosamente las recomendaciones que aparecen abajo del formulario.</p>
 	<p>Escribe a conticuacion el email de la persona que deseas invitar a <b>slidle</b>.</p>
-<br>	<form class="form-horizontal" id="changepasswd" method="post" action="index.php?view=processinvitation" role="form">
+<br>	<form class="form-horizontal" id="changepasswd" method="post" action="index.php?view=addinvitation" role="form">
 
   <div class="form-group">
     <label for="inputEmail1" class="col-lg-2 control-label">Email</label>

@@ -12,8 +12,8 @@ class InvitationData {
 	}
 
 	public function add(){
-		$sql = "insert into user (the_key,email,user_id,created_at) ";
-		$sql .= "value (\"$this->the_key\",\"$this->email\",\"$this->user_id\",$this->created_at)";
+		$sql = "insert into ".self::$tablename." (the_key,email,user_id,created_at) ";
+echo		$sql .= "value (\"$this->the_key\",\"$this->email\",\"$this->user_id\",$this->created_at)";
 		Executor::doit($sql);
 	}
 
@@ -51,11 +51,11 @@ class InvitationData {
 	}
 
 	public static function getByMail($mail){
-		echo $sql = "select * from ".self::$tablename." where mail=\"$mail\"";
+		echo $sql = "select * from ".self::$tablename." where email=\"$mail\"";
 		$query = Executor::doit($sql);
 		$found = null;
 		$data = new InvitationData();
-		while($r = $query->fetch_array()){
+		while($r = $query[0]->fetch_array()){
 			$data->id = $r['id'];
 			$data->the_key = $r['the_key'];
 			$data->email = $r['email'];

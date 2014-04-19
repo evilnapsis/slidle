@@ -61,19 +61,21 @@ echo		$sql .= "value (\"$this->name\",\"$this->lastname\",\"$this->email\",\"$th
 	}
 
 	public static function getByMail($mail){
-		echo $sql = "select * from ".self::$tablename." where mail=\"$mail\"";
+		$sql = "select * from ".self::$tablename." where email=\"$mail\"";
 		$query = Executor::doit($sql);
-		$found = null;
-		$data = new UserData();
-		while($r = $query->fetch_array()){
-			$data->id = $r['id'];
-			$data->name = $r['name'];
-			$data->mail = $r['mail'];
-			$data->created_at = $r['created_at'];
-			$found = $data;
-			break;
+		$array = array();
+		$cnt = 0;
+		while($r = $query[0]->fetch_array()){
+			$array[$cnt] = new UserData();
+			$array[$cnt]->id = $r['id'];
+			$array[$cnt]->name = $r['name'];
+			$array[$cnt]->lastname = $r['lastname'];
+			$array[$cnt]->email = $r['email'];
+			$array[$cnt]->password = $r['password'];
+			$array[$cnt]->created_at = $r['created_at'];
+			$cnt++;
 		}
-		return $found;
+		return $array;
 	}
 
 
