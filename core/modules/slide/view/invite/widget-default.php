@@ -1,6 +1,10 @@
-<div class="row">
+<?php
+$invitations = InvitationData::getAllByUserId(Session::getUID());
 
+?>
+<div class="row">
 	<div class="col-md-9">
+<?php if(count($invitations)==0):?>
 	<h2><i class="glyphicon glyphicon-envelope"></i> Enviar Invitacion</h2>
 	<p>Bienvenido al sistema de invitacion de <b>Slidle</b>. Lee cuidadosamente las recomendaciones que aparecen abajo del formulario.</p>
 	<p>Escribe a conticuacion el email de la persona que deseas invitar a <b>slidle</b>.</p>
@@ -33,23 +37,20 @@
 <p><b>Slidle</b> es un sistema  de red social en el cual solo es posible obtener una cuenta mediante una invitacion. A cada usuario de <b>Slidle</b> se le otorga una invitacion para que invite a un amigo.</p>
  <p class="alert alert-warning">Esta caracteristica se activa al crear mas de 10 slidles</p>
 <p>La invitacion solo esta activa por 20 dias, despues de ese periodo se rechaza el email para futuras invitaciones.</p>
-<script>
-$("#changepasswd").submit(function(e){
-	if($("#password").val()=="" || $("#newpassword").val()=="" || $("#confirmnewpassword").val()==""){
-		e.preventDefault();
-		alert("No debes dejar espacios vacios.");
+<?php else: ?>
+  <h2>Ya has enviado una invitacion.</h2>
+<br>
+<?php
+foreach($invitations as $invitation){
+  echo "<h3 class='alert alert-success'>Le has enviado la invitacion a <b>".$invitation->email."</b></h3>";
+}
+?>
+<br>
+<h2>Recomendaciones</h2>
+<p><b>Slidle</b> es un sistema  de red social en el cual solo es posible obtener una cuenta mediante una invitacion. A cada usuario de <b>Slidle</b> se le otorga una invitacion para que invite a un amigo.</p>
+<p>La invitacion solo esta activa por 20 dias, despues de ese periodo se rechaza el email para futuras invitaciones.</p>
 
-	}else{
-		if($("#newpassword").val() == $("#confirmnewpassword").val()){
-//			alert("Correcto");			
-		}else{
-			e.preventDefault();
-			alert("Las nueva contraseña no coincide con la confirmacion.");
-		}
-	}
-});
-
-</script>
+<?php endif; ?>
 	</div>
 </div>
 <br><br><br><br><br><br><br><br><br>
