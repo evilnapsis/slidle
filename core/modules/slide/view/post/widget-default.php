@@ -52,10 +52,55 @@ $post->content = preg_replace("/(#\w+)/", "<b><a href='index.php?view=tag&tag=$1
 	</div>
 </div>
 </div>
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/es_LA/all.js#xfbml=1&appId=383508155123666";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+<div class="" style="background:#f0f0f0">
+<br><div class="container">
+	<div class="row">
+		<div class="col-md-6">
+		<h3>Acerca del Autor</h3>
+<?php $author = UserData::getById($post->user_id); ?>
+<div class="row">
+	<div class="col-md-4">
+		
+
+	</div>
+	<div class="col-md-8">
+		<h2><?php echo $author->name." ".$author->lastname;?></h2>
+<div class="row">
+	<div class="col-md-6">
+				<a href="index.php?view=user&id=<?php echo $post->user_id; ?>" class="btn btn-default btn-lg btn-block">Perfil</a>
+	</div>
+	<div class="col-md-6">
+				<a href="" class="btn btn-default btn-lg btn-block">Seguir</a>
+	</div>
+</div>
+
+
+	</div>
+</div>
+		</div>
+		<div class="col-md-6">
+		<h2>Compartir</h2>
+			<div class="fb-share-button" data-href="http://www.slidle.com/index.php?viepost&id=<?php echo $post->id; ?>" data-type="button_count"></div>
+		</div>
+	</div>
+</div>
+<br><br><br>
+</div>
+
 <?php if(Session::getUID()!=""):
 
 ?>
-<div class="" style="background:white">
+<div class="" style="background:#f0f0f0">
 <div class="container">
 	<div class="row">
 		<div class="col-md-8">

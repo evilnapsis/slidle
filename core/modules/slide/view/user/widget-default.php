@@ -2,17 +2,34 @@
 	<div class="col-md-4">
 	<?php 
 
+		$posts = PostData::getAllByUserId($_GET['id']);
 	$u = UserData::getById($_GET["id"]);
 
 	echo "<h2>".$u->name." ".$u->lastname."</h2>"; ?>
-	<a href="index.php?view=newpost" class="btn btn-lg btn-block btn-default"><i class='glyphicon glyphicon-file'></i> Nuevo Slide</a>
 	<br>
+	<a href="" class="btn btn-default btn-lg btn-block">Seguir</a>
+
+<br><table class="table table-bordered" style="background:white;">
+	<tr>
+		<td colspan="4" style="background:#333;color:white;font-weight:bold;">Estadisticas</td>
+	</tr>
+	<tr>
+		<td>Slidles
+		<center><h2><?php echo count($posts); ?></h2></center>
+		</td>
+		<td>Loved
+		<center><h2><?php echo count(LoveData::getAllByUserId($u->id)); ?></h2></center>
+		</td>
+		<td>Siguendo</td>
+		<td>Seguidores</td>
+	</tr>
+</table>
 		<div class="panel panel-default">
             <div class="panel-heading">
                 <h3 class="panel-title">&nbsp;</h3>
             </div>
         	<div class="list-group">
-					<a href='index.php' class='list-group-item'><i class="glyphicon glyphicon-chevron-right"></i> Mis Slidles</a>
+					<a href='index.php' class='list-group-item'><i class="glyphicon glyphicon-chevron-right"></i> Slidles</a>
 					<a href='index.php' class='list-group-item'><i class="glyphicon glyphicon-chevron-right"></i> Collecciones</a>
 			</div>
         </div>
@@ -21,7 +38,6 @@
 		<br>
 		<?php
 
-		$posts = PostData::getAllByUserId($_GET['id']);
 		if(count($posts)>0){
 			// si hay usuarios
 			?>

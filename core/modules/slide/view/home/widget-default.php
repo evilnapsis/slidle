@@ -29,8 +29,8 @@
             </div>
         	<div class="list-group">
 					<a href='index.php' class='list-group-item'><i class="glyphicon glyphicon-chevron-right"></i> Mis Slidles</a>
-					<a href='index.php' class='list-group-item'><i class="glyphicon glyphicon-chevron-right"></i> Amigos</a>
-					<a href='index.php?view=users' class='list-group-item'><i class="glyphicon glyphicon-chevron-right"></i> Configuracion</a>
+					<a href='index.php?view=sent' class='list-group-item'><i class="glyphicon glyphicon-chevron-right"></i> Enviados</a>
+					<a href='index.php?view=received' class='list-group-item'><i class="glyphicon glyphicon-chevron-right"></i> Recividos</a>
 			</div>
         </div>
 
@@ -38,7 +38,7 @@
   <div class="panel-heading"><b>Invita a un amigo !!</b></div>
   <div class="panel-body">
     <p><b>Slidle</b> te regala una invitacion para que se la regales a tu mejor amigo, tu hermano, novia, etc. <b>Slidle</b> solo funciona con invitacion. </p>
-    <a href="" class="btn btn-warning btn-block"><i class="glyphicon glyphicon-star"></i> Invitar un amigo</a>
+    <a href="index.php?view=invite" class="btn btn-warning btn-block"><i class="glyphicon glyphicon-star"></i> Invitar un amigo</a>
   </div>
 </div>
 
@@ -58,7 +58,7 @@
 
 <div class="row">
 	<div class="col-md-12">
-	<div class="slide" style="box-shadow:-3px 3px 15px #666;">
+	<div class="slide" style="box-shadow:-1px 1px 10px #999;">
 		<div class="header" style="background:<?php echo $theme->header_background_color;?>;color:<?php echo $theme->header_text_color;?>;padding:10px;">
 <!-- Single button -->
 <div class="btn-group pull-right">

@@ -42,7 +42,21 @@ insert into theme (name, header_background_color,header_text_color,body_backgrou
 insert into theme (name, header_background_color,header_text_color,body_background_color,body_text_color) value ("Rojado Dark","red","white","black","red");
 insert into theme (name, header_background_color,header_text_color,body_background_color,body_text_color) value ("Amarillado","yellow","black","black","white");
 insert into theme (name, header_background_color,header_text_color,body_background_color,body_text_color) value ("Rivery","#3498db","white","white","#3498db");
+insert into theme (name, header_background_color,header_text_color,body_background_color,body_text_color) value ("Rivery full","#3498db","white","#3498db","white");
+
+insert into theme (name, header_background_color,header_text_color,body_background_color,body_text_color) value ("Belize hole","#2980b9","white","white","#2980b9");
+insert into theme (name, header_background_color,header_text_color,body_background_color,body_text_color) value ("Belize hole full","#2980b9","white","#2980b9","white");
+insert into theme (name, header_background_color,header_text_color,body_background_color,body_text_color) value ("Emerald","#2ecc71","white","white","#2ecc71");
+insert into theme (name, header_background_color,header_text_color,body_background_color,body_text_color) value ("Emerald full","#2ecc71","white","#2ecc71","white");
+insert into theme (name, header_background_color,header_text_color,body_background_color,body_text_color) value ("Nephritis","#27ae60","white","white","#27ae60");
+insert into theme (name, header_background_color,header_text_color,body_background_color,body_text_color) value ("Nephritis full","#27ae60","white","#27ae60","white");
+insert into theme (name, header_background_color,header_text_color,body_background_color,body_text_color) value ("Sunflower","#f1c40f","white","white","#f1c40f");
+insert into theme (name, header_background_color,header_text_color,body_background_color,body_text_color) value ("Sunflower full","#f1c40f","white","#f1c40f","white");
+insert into theme (name, header_background_color,header_text_color,body_background_color,body_text_color) value ("Alizarin","#e74c3c","white","white","#e74c3c");
+insert into theme (name, header_background_color,header_text_color,body_background_color,body_text_color) value ("Alizarin full","#e74c3c","white","#e74c3c","white");
+
 insert into theme (name, header_background_color,header_text_color,body_background_color,body_text_color) value ("Graymori","#555","white","white","#555");
+
 
 create table slide (
 	id int not null auto_increment primary key,
