@@ -23,7 +23,7 @@ class UserData {
 
 	public function add(){
 		$sql = "insert into user (name,lastname,email,password,created_at) ";
-echo		$sql .= "value (\"$this->name\",\"$this->lastname\",\"$this->email\",\"$this->password\",$this->created_at)";
+		$sql .= "value (\"$this->name\",\"$this->lastname\",\"$this->email\",\"$this->password\",$this->created_at)";
 		Executor::doit($sql);
 	}
 

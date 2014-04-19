@@ -19,10 +19,10 @@
 <form method="post" action="index.php?view=processinvitation" id="start">
 <div class="row">
   <div class="col-lg-6">
-    <input type="email" class="form-control input-lg" id="start_email" placeholder="Tu correo electronico">
+    <input type="email" class="form-control input-lg" id="start_email" name="email" placeholder="Tu correo electronico">
   </div>
   <div class="col-lg-4">
-    <input type="password" class="form-control input-lg" id="secret_code" placeholder="Codigo Secreto">
+    <input type="password" class="form-control input-lg" id="secret_code" name="secret" placeholder="Codigo Secreto">
   </div>
 
   <div class="col-lg-2">
