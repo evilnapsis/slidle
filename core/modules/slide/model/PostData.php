@@ -104,6 +104,46 @@ class PostData {
 		return $array;
 	}
 
+	public static function get10ByUserId($user_id){
+		$sql = "select * from ".self::$tablename." where user_id=$user_id order by created_at desc limit 10";
+		$query = Executor::doit($sql);
+		$array = array();
+		$cnt = 0;
+		while($r = $query[0]->fetch_array()){
+			$array[$cnt] = new PostData();
+			$array[$cnt]->id = $r['id'];
+			$array[$cnt]->title = $r['title'];
+			$array[$cnt]->content = $r['content'];
+			$array[$cnt]->image = $r['image'];
+			$array[$cnt]->is_public = $r['is_public'];
+			$array[$cnt]->theme_id = $r['theme_id'];
+			$array[$cnt]->user_id = $r['user_id'];
+			$array[$cnt]->created_at = $r['created_at'];
+			$cnt++;
+		}
+		return $array;
+	}
+
+	public static function getAllFromXByUserId($x, $user_id){
+		 $sql = "select * from ".self::$tablename." where user_id=$user_id and id<$x order by created_at desc limit 10";
+		$query = Executor::doit($sql);
+		$array = array();
+		$cnt = 0;
+		while($r = $query[0]->fetch_array()){
+			$array[$cnt] = new PostData();
+			$array[$cnt]->id = $r['id'];
+			$array[$cnt]->title = $r['title'];
+			$array[$cnt]->content = $r['content'];
+			$array[$cnt]->image = $r['image'];
+			$array[$cnt]->is_public = $r['is_public'];
+			$array[$cnt]->theme_id = $r['theme_id'];
+			$array[$cnt]->user_id = $r['user_id'];
+			$array[$cnt]->created_at = $r['created_at'];
+			$cnt++;
+		}
+		return $array;
+	}
+
 
 
 

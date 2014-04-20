@@ -18,7 +18,7 @@ if(isset($_GET["view"]) && $_GET["view"]=="post" && isset($_GET["id"])){
  ?>
 <html>
 <head>
-
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta charset="utf8">
 <?php if($is_post==true):?>
 <title><?php echo $post->title; ?> - en un Slidle</title>
@@ -27,6 +27,13 @@ if(isset($_GET["view"]) && $_GET["view"]=="post" && isset($_GET["id"])){
 <?php endif; ?>
 <link rel="stylesheet" type="text/css" href="res/bootstrap3/css/bootstrap.min.css">
 <style>
+body {
+    -webkit-transition : 0.5s background linear;
+    -moz-transition : 0.5s background linear;
+    -o-transition : 0.5s background linear;
+    transition : 0.5s background linear;
+ 
+}
   .squaret {
     background: rgba(0,0,0,0.7);
     color: white;
@@ -77,6 +84,20 @@ if(isset($_GET["view"]) && $_GET["view"]=="post" && isset($_GET["id"])){
 
 <?php if(!isset($_GET['view']) || $_GET["view"]=="login"):?>
 <body style="background:url(res/images/akihabara.jpg) no-repeat fixed;background-size:cover;">
+<script>
+  body = document.body;
+  images = ["res/images/akihabara.jpg","res/images/rio-selva.jpg","res/images/gran-canion.jpg"];
+  i = 0;
+  setInterval(function(){
+    body = document.body;
+    body.style.backgroundImage = "url(" + images[i] + ")";
+    
+    console.log(body.style.backgroundImage);
+    i++;
+    if(i==3){ i=0; }
+  },5000);
+</script>
+
 <?php elseif(isset($_GET['view']) && $_GET["view"]=="post"):?>
 <body style="background:<?php echo $theme->body_background_color; ?> no-repeat fixed;background-size:cover;">
 <?php else:?>

@@ -1,60 +1,22 @@
-<div class="row">
-	<div class="col-md-4">
-	<?php 
-
-	$u = UserData::getById(Session::getUID());
-	$posts = PostData::getAllByUserId(Session::getUID());
-	$posts10 = PostData::get10ByUserId(Session::getUID());
-
-	echo "<h2>".$u->name." ".$u->lastname."</h2>"; ?>
-	<a href="index.php?view=newpost" class="btn btn-lg btn-block btn-default"><i class='glyphicon glyphicon-file'></i> Nuevo Slide</a>
-<br><table class="table table-bordered" style="background:white;">
-	<tr>
-		<td colspan="4" style="background:#333;color:white;font-weight:bold;">Estadisticas</td>
-	</tr>
-	<tr>
-		<td>Slidles
-		<center><h2><?php echo count($posts); ?></h2></center>
-		</td>
-		<td>Loved
-		<center><h2><?php echo count(LoveData::getAllByUserId(Session::getUID())); ?></h2></center>
-		</td>
-		<td>Siguendo</td>
-		<td>Seguidores</td>
-	</tr>
-</table>
-	<br>
-		<div class="panel panel-default">
-            <div class="panel-heading">
-                <h3 class="panel-title">&nbsp;</h3>
-            </div>
-        	<div class="list-group">
-					<a href='index.php' class='list-group-item'><i class="glyphicon glyphicon-chevron-right"></i> Mis Slidles</a>
-					<a href='index.php?view=sent' class='list-group-item'><i class="glyphicon glyphicon-chevron-right"></i> Enviados</a>
-					<a href='index.php?view=received' class='list-group-item'><i class="glyphicon glyphicon-chevron-right"></i> Recividos</a>
-			</div>
-        </div>
-
-<div class="panel panel-warning">
-  <div class="panel-heading"><b>Invita a un amigo !!</b></div>
-  <div class="panel-body">
-    <p><b>Slidle</b> te regala una invitacion para que se la regales a tu mejor amigo, tu hermano, novia, etc. <b>Slidle</b> solo funciona con invitacion. </p>
-    <a href="index.php?view=invite" class="btn btn-warning btn-block"><i class="glyphicon glyphicon-star"></i> Invitar un amigo</a>
-  </div>
-</div>
-
-
-	</div>
-	<div class="col-md-8">
-		<br>
 		<?php
+include "core/autoload.php";
+include "core/modules/slide/model/UserData.php";
+include "core/modules/slide/model/PostData.php";
+include "core/modules/slide/model/ThemeData.php";
+include "core/modules/slide/model/LoveData.php";
+
+
+	
+//	$posts = PostData::getAllByUserId($_GET['uid']);
+	$ref = $_GET['ref'];
+	$posts = PostData::getAllFromXByUserId($_GET["from"], $_GET["uid"]);
 
 		if(count($posts)>0){
 			// si hay usuarios
 			?>
 			<?php
 			$last_id=null;
-			foreach($posts10 as $post){
+			foreach($posts as $post){
 				?>
 <?php $theme = ThemeData::getById($post->theme_id); ?>
 
@@ -123,16 +85,17 @@ $("#loveit-"+"<?php echo $post->id; ?>").click(function(){
 			$last_id = $post->id;
 			}
 
-	if(count($posts)>10){
-	print "<div id='more-1'><button id='btn-more-1' class='btn btn-default btn-lg btn-block'><i class='glyphicon glyphicon-refresh'></i> Cargar mas ...</button></div>";
-
+if(count($posts)>0){
+	print "<div id='more-$ref'><button id='btn-more-$ref' class='btn btn-default btn-lg btn-block'><i class='glyphicon glyphicon-refresh'></i> Cargar mas ...</button></div>";
+	$next = $ref+1;
 	?>
 <script>
-	$("#btn-more-1").click(function(){
+	$("#btn-more-<?php echo $ref;?>").click(function(){
+//		alert("wtf!");
 		xhr = new XMLHttpRequest();
-		xhr.open("GET","loadsldl.php?uid=<?php echo Session::getUID();?>&from=<?php echo $last_id; ?>&ref=2",false);
+		xhr.open("GET","loadsldl.php?uid=<?php echo $_GET['uid'];?>&from=<?php echo $last_id; ?>&ref=<?php echo $next;?>",false);
 		xhr.send();
-		$("#more-1").html(xhr.responseText);
+		$("#more-<?php echo $ref;?>").html(xhr.responseText);
 	});
 </script>
 	<?php
@@ -141,20 +104,6 @@ $("#loveit-"+"<?php echo $post->id; ?>").click(function(){
 
 		}else{
 			// no hay usuarios
-			?>
-
-<div class="jumbotron">
-	<h2>No hay slidles</h2>
-	<p>Al parecer no has agregado ningun Slidle.Te recomendamos agregar uno.</p>
-</div>
-
-			<?php
+			print "<p class='alert alert-warning'>Ya no hay slidles que cargar ...</p>";
 		}
-
-
-		?>
-
-
-	</div>
-</div>
-<br><br><br><br><br><br><br><br><br>
+			?>

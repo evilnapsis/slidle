@@ -65,15 +65,14 @@ $post->content = preg_replace("/(#\w+)/", "<b><a href='index.php?view=tag&tag=$1
 <div class="" style="background:#f0f0f0">
 <br><div class="container">
 	<div class="row">
-		<div class="col-md-6">
+		<div class="col-md-4">
 		<h3>Acerca del Autor</h3>
 <?php $author = UserData::getById($post->user_id); ?>
 <div class="row">
-	<div class="col-md-4">
+	<div class="col-md-3">
 		
-
 	</div>
-	<div class="col-md-8">
+	<div class="col-md-9">
 		<h2><?php echo $author->name." ".$author->lastname;?></h2>
 <div class="row">
 	<div class="col-md-6">
@@ -83,15 +82,23 @@ $post->content = preg_replace("/(#\w+)/", "<b><a href='index.php?view=tag&tag=$1
 				<a href="" class="btn btn-default btn-lg btn-block">Seguir</a>
 	</div>
 </div>
-
-
 	</div>
 </div>
 		</div>
-		<div class="col-md-6">
+		<div class="col-md-4">
+		<br>
+			<a href="" class="btn btn-lg btn-default btn-block"><i class="glyphicon glyphicon-heart-empty"></i> Love It!</a>
+			<a href="" class="btn btn-lg btn-default btn-block"><i class="glyphicon glyphicon-th-large"></i> Reslidle It!</a>
+			<a href="" class="btn btn-lg btn-default btn-block"><i class="glyphicon glyphicon-share"></i> Share</a>
+
+		</div>
+
+		<div class="col-md-4">
 		<h2>Compartir</h2>
 			<div class="fb-share-button" data-href="http://www.slidle.com/index.php?viepost&id=<?php echo $post->id; ?>" data-type="button_count"></div>
 		</div>
+
+
 	</div>
 </div>
 <br><br><br>
@@ -110,10 +117,6 @@ $post->content = preg_replace("/(#\w+)/", "<b><a href='index.php?view=tag&tag=$1
 			<textarea class="form-control"></textarea>
 		</div>
 		<div class="col-md-4">
-		<br>
-			<a href="" class="btn btn-lg btn-default btn-block"><i class="glyphicon glyphicon-heart-empty"></i> Love It!</a>
-			<a href="" class="btn btn-lg btn-default btn-block"><i class="glyphicon glyphicon-th-large"></i> Reslidle It!</a>
-			<a href="" class="btn btn-lg btn-default btn-block"><i class="glyphicon glyphicon-share"></i> Share</a>
 		</div>
 	</div>
 </div>
