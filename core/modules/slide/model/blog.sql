@@ -57,6 +57,13 @@ insert into theme (name, header_background_color,header_text_color,body_backgrou
 
 insert into theme (name, header_background_color,header_text_color,body_background_color,body_text_color) value ("Graymori","#555","white","white","#555");
 
+insert into theme (name, header_background_color,header_text_color,body_background_color,body_text_color) value ("Midnight nephritis","#2c3e50","#27ae60","#27ae60","#2c3e50");
+insert into theme (name, header_background_color,header_text_color,body_background_color,body_text_color) value ("Midnight emerald","#2c3e50","#2ecc71","#2ecc71","#2c3e50");
+insert into theme (name, header_background_color,header_text_color,body_background_color,body_text_color) value ("Midnight alizarin","#2c3e50","#e74c3c","#e74c3c","#2c3e50");
+insert into theme (name, header_background_color,header_text_color,body_background_color,body_text_color) value ("Midnight sunflower","#2c3e50","#f1c40f","#f1c40f","#2c3e50");
+insert into theme (name, header_background_color,header_text_color,body_background_color,body_text_color) value ("Midnight peter river","#2c3e50","#3498db","#3498db","#2c3e50");
+insert into theme (name, header_background_color,header_text_color,body_background_color,body_text_color) value ("Wet asfalt alizarin","#34495e","#e74c3c","#e74c3c","#34495e");
+
 
 create table slide (
 	id int not null auto_increment primary key,
@@ -98,3 +105,7 @@ create table invitation(
 	foreign key(user_id) references user(id),
 	created_at datetime not null
 );
+
+
+CREATE FULLTEXT INDEX title ON slide(title);
+CREATE FULLTEXT INDEX content ON slide(content);

@@ -119,7 +119,7 @@ body {
 <?php if(Session::getUID()!=""):?>
       <ul class="nav navbar-nav">
           <li><a href="index.php?view=home"><i class="glyphicon glyphicon-home"></i> Inicio</a></li>
-          <li><a href="index.php?view=home"><i class="glyphicon glyphicon-user"></i> Personas</a></li>
+          <li><a href="index.php?view=people"><i class="glyphicon glyphicon-search"></i> Buscar</a></li>
           <li><a href="index.php?view=newpost"><i class="glyphicon glyphicon-file"></i> Nuevo</a></li>
       </ul>
 <?php endif; ?>
